@@ -1,5 +1,3 @@
-
-
 '''
 $env:FLASK_APP = "main"
 $env:FLASK_DEBUG = "1"
