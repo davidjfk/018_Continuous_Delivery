@@ -17,18 +17,19 @@ jobs:
         run: pytest
 
   deploy:
-    needs: build-and-test # refers to first 2 actions in previous job.
+    needs: build # refers to first 2 actions in previous job.
     runs-on: ubuntu-20.04
     steps:
       - name: Deploy to Digital Ocean Droplet
         uses: appleboy/ssh-action@v1.0.0 # latest version
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
+        # source: https://medium.com/swlh/how-to-deploy-your-application-to-digital-ocean-using-github-actions-and-save-up-on-ci-cd-costs-74b7315facc2
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
           port: 22 # default 22
           script: |
-            cd /var/www/ 
+            cd /var/www/
             touch loging_into_droplet_from_github_actions.txt
             echo "Hello from Github Actions" >> loging_into_droplet_from_github_actions.txt
             echo "Hello from Github Actions" 
