@@ -1,0 +1,52 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+
+}
+
+h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* 
+    I use the css classes as identifiers in pytest
+*/
+.stanza1,
+.stanza2,
+.stanza3,
+.stanza4,
+.stanza5,
+.stanza6,
+.stanza7,
+.stanza8,
+.stanza9,
+.stanza10,
+.stanza11,
+.stanza12,
+.stanza13,
+.stanza14,
+.stanza15,
+.stanza16,
+.stanza17,
+.stanza18,
+.stanza19,
+.stanza20,
+.stanza21,
+.stanza22,
+.stanza23,
+.stanza24,
+.stanza25,
+.stanza26,
+.stanza27,
+.stanza28 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    padding: 10px;
+    /* border: 1px solid #CCC; */
+    text-align: center;
+    width: 30%;
+    margin: 0 auto;
+}
