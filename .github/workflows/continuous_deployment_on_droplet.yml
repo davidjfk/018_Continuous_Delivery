@@ -2,16 +2,33 @@ name: Continuous Deployment on Digital Ocean Droplet
 
 on: push
 jobs:
-  run-tests:
+  build-and-test:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: Setup Python 3.11
-        uses: actions/setup-python@v3
+        uses: actions/checkout@v4 # latest version
+      - name: Setup Python 3.10
+        uses: actions/setup-python@v4 # latest version
         with:
-          python-version: '3.11.0'
+          python-version: '3.10'
       - name: Install Dependencies
         run: pip install -r requirements.txt
       - name: Run tests
         run: pytest
+
+  deploy:
+    needs: build-and-test # refers to first 2 actions in previous job.
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Deploy to Digital Ocean Droplet
+        uses: appleboy/ssh-action@v1.0.0 # latest version
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: 22 # default 22
+          script: |
+            cd /var/www/ 
+            touch loging_into_droplet_from_github_actions.txt
+            echo "Hello from Github Actions" >> loging_into_droplet_from_github_actions.txt
+            echo "Hello from Github Actions" 
