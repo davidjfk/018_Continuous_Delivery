@@ -1,6 +1,6 @@
 name: Continuous Deployment on Digital Ocean Droplet
 
-on: push
+on: workflow_dispatch
 jobs:
   build-and-test:
     runs-on: ubuntu-20.04
