@@ -1,9 +1,3 @@
-'''
-$env:FLASK_APP = "main"
-$env:FLASK_DEBUG = "1"
-flask run --port 5002
-'''
-
 import sys
 from flask import Flask, render_template
 app = Flask(__name__)
@@ -27,13 +21,6 @@ def mindset():
 @app.route('/teamwork', methods=['GET'])
 def teamwork():
     return render_template("teamwork.html", status_code=200, poem="Software Development, A Tale of Teamwork", author="Bard")
-
-
-'''
-@app.route('/cow')
-def cow():
-    return 'MOoooOo!'
-'''
 
 if __name__ == "__main__":
     app.run(debug=True)
