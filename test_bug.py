@@ -60,4 +60,4 @@ def test_bug_check_all_html(client):
         assert soup.find('p', class_=f'stanza{i}').text == stanza 
 
 
-    
+   
